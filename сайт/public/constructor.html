@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Конструктор - SmailAgent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Marck+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="inner-page">
+  <header class="header">
+    <div class="container nav">
+      <a class="logo logo-phone" href="tel:+79628676818">+7 962 867-68-18</a>
+      <nav class="menu">
+        <a href="./index.html">Главная</a>
+        <a href="./portfolio.html">Портфолио</a>
+        <a href="./reviews.html">Отзывы</a>
+        <a href="./booking.html">Бронирование</a>
+        <button id="openAuthBtn" class="btn btn-menu" type="button">Авторизация</button>
+        <a id="adminLink" href="./admin.html" style="display:none;">Админ-панель</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <h2>Конструктор перенесен</h2>
+    <p class="section-text">Календарь и конструктор теперь объединены в одной вкладке бронирования.</p>
+    <a class="btn" href="./booking.html">Перейти в бронирование</a>
+  </main>
+
+  <div id="authModal" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-panel card">
+      <button id="closeAuthBtn" class="modal-close" type="button">×</button>
+      <h2>Авторизация</h2>
+      <div class="auth-grid">
+        <form id="registerForm" class="card">
+          <h3>Регистрация клиента</h3>
+          <label>Логин
+            <input required name="login" type="text" minlength="4">
+          </label>
+          <label>Пароль
+            <input required name="password" type="password" minlength="6">
+          </label>
+          <button class="btn" type="submit">Зарегистрироваться</button>
+        </form>
+        <form id="loginForm" class="card">
+          <h3>Вход</h3>
+          <label>Логин
+            <input required name="login" type="text">
+          </label>
+          <label>Пароль
+            <input required name="password" type="password">
+          </label>
+          <button class="btn" type="submit">Войти</button>
+          <button id="logoutBtn" class="btn btn-secondary" type="button">Выйти</button>
+        </form>
+      </div>
+      <p id="sessionInfo" class="section-text"></p>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

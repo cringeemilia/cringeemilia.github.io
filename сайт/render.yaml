@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: smailagent
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: python server.py
+    autoDeploy: true
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: smailagent-data
+      mountPath: /var/data
+      sizeGB: 1
