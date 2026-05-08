@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmailAgent - Агентство детских праздников</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700;800&family=Marck+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo logo-phone" href="tel:+79628676818">+7 962 867-68-18</a>
+      <nav class="menu">
+        <a href="./index.html">Главная</a>
+        <a href="./portfolio.html">Портфолио</a>
+        <a href="./reviews.html">Отзывы</a>
+        <a href="./booking.html">Бронирование</a>
+        <button id="openAuthBtn" class="btn btn-menu" type="button">Авторизация</button>
+        <a id="adminLink" href="./admin.html" style="display:none;">Админ-панель</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="silver-stars" aria-hidden="true">
+      <span>✧</span><span>✧</span><span>✧</span><span>✧</span><span>✧</span><span>✧</span>
+      <span>✧</span><span>✧</span><span>✧</span><span>✧</span><span>✧</span><span>✧</span>
+    </div>
+    <section id="heroSection" class="hero hero-photo">
+      <div class="container hero-content">
+        <h1 id="heroTitle" class="brand-hero-title">SmailAgent</h1>
+        <p id="heroSubtitle">Праздничное агентство для самых ярких детских событий</p>
+        <a class="btn btn-menu btn-hero" href="./booking.html">Забронировать</a>
+      </div>
+    </section>
+    <section id="heroAdminSection" class="section container" style="display:none;">
+      <div class="card">
+        <h3>Редактирование главного блока</h3>
+        <form id="heroForm" class="form-grid">
+          <label>Название агентства
+            <input id="heroTitleInput" name="heroTitle" type="text" placeholder="SmailAgent">
+          </label>
+          <label>Подпись
+            <textarea id="heroSubtitleInput" name="heroSubtitle" rows="3" placeholder="Подпись под названием"></textarea>
+          </label>
+          <label>Главное фото
+            <input id="heroImageFileInput" name="heroImageFile" type="file" accept="image/*">
+          </label>
+          <button class="btn" type="submit">Сохранить главный блок</button>
+        </form>
+      </div>
+    </section>
+    <section class="section container about-section">
+      <h2 class="about-title about-title-gold">О нас</h2>
+      <div class="about-grid about-ref card">
+        <div id="aboutView" class="about-view card">
+          <p class="about-kicker">НАШЕ АГЕНТСТВО</p>
+          <p id="aboutTextPreview" class="about-text"></p>
+        </div>
+        <div class="about-collage">
+          <div class="about-image-wrap about-image-top">
+            <img id="aboutImagePreview" src="./portfolio/about.jpg" alt="Фото о нас">
+          </div>
+          <div class="about-image-wrap about-image-bottom">
+            <img id="aboutImagePreviewSecond" src="./portfolio/2.jpg" alt="Фото мероприятия">
+          </div>
+        </div>
+        <form id="aboutForm" class="about-editor form-grid">
+          <label>Текст
+            <textarea id="aboutTextInput" name="aboutText" rows="7" placeholder="Введите текст раздела О нас"></textarea>
+          </label>
+          <label>Фото 1
+            <input id="aboutImageFileInput" name="aboutImageFile" type="file" accept="image/*">
+          </label>
+          <label>Фото 2
+            <input id="aboutImageSecondFileInput" name="aboutImageSecondFile" type="file" accept="image/*">
+          </label>
+          <button class="btn" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="authModal" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-panel card">
+      <button id="closeAuthBtn" class="modal-close" type="button">×</button>
+      <h2>Авторизация</h2>
+      <div class="auth-grid">
+        <form id="registerForm" class="card">
+          <h3>Регистрация клиента</h3>
+          <label>Логин
+            <input required name="login" type="text" minlength="4">
+          </label>
+          <label>Пароль
+            <input required name="password" type="password" minlength="6">
+          </label>
+          <button class="btn" type="submit">Зарегистрироваться</button>
+        </form>
+        <form id="loginForm" class="card">
+          <h3>Вход</h3>
+          <label>Логин
+            <input required name="login" type="text">
+          </label>
+          <label>Пароль
+            <input required name="password" type="password">
+          </label>
+          <button class="btn" type="submit">Войти</button>
+          <button id="logoutBtn" class="btn btn-secondary" type="button">Выйти</button>
+        </form>
+      </div>
+      <p id="sessionInfo" class="section-text"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>SmailAgent • демо MVP • 2026</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
