@@ -97,8 +97,13 @@ class AppHandler(SimpleHTTPRequestHandler):
 
 def run():
   ensure_dirs()
-  server = ThreadingHTTPServer((HOST, PORT), AppHandler)
-  print(f"SmailAgent started at http://localhost:{PORT}")
+  host = os.getenv("HOST", HOST)
+  try:
+    port = int(os.getenv("PORT", str(PORT)))
+  except ValueError:
+    port = PORT
+  server = ThreadingHTTPServer((host, port), AppHandler)
+  print(f"SmailAgent started at http://localhost:{port}")
   server.serve_forever()
 
 
